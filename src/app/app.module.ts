@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-// import {ButtonModule} from 'primeng/button';
+import {ButtonModule} from 'primeng/button';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-// import {InputTextModule} from 'primeng/inputtext';
+import {InputTextModule} from 'primeng/inputtext';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 // import { FormYupComponent } from './components/form-yup/form-yup.component';
 import { FormYupModule } from './components/form-yup/form-yup.module';
@@ -26,8 +26,8 @@ import { environment } from 'src/environments/environment';
     ReactiveFormsModule,
     BrowserModule,
     AppRoutingModule,
-    // ButtonModule,
-    // InputTextModule,
+    ButtonModule,
+    InputTextModule,
     FormsModule,
     FormYupModule,
     HttpClientModule,

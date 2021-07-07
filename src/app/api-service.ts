@@ -35,6 +35,6 @@ export class ApiService {
     //   todos: arrayAdd(todos, todo),
     // }));
     this.todoStore.add(todo);
-    console.log(todo, 'ajjaa');
+    console.log(todo, 'nuevo');
   }
 }
