@@ -1,0 +1,35 @@
+<form>
+  <form data-cy="span-home" class="p-float-label">
+    <div>
+      <input
+        id="in_title"
+        placeholder="Title"
+        name="title"
+        type="text"
+        pInputText
+        [(ngModel)]="title"
+        (keyup)="cleanErrors($event, 'title')"
+      />
+      <span>{{ error_title }}</span>
+    </div>
+    <div>
+      <input
+        id="in_age"
+        placeholder="Age"
+        name="age"
+        type="text"
+        pInputText
+        [(ngModel)]="age"
+        (keyup)="cleanErrors($event, 'age')"
+      />
+      <span>{{ error_age }}</span>
+    </div>
+    <!-- <label for="in_title">title</label> -->
+    <button
+      type="button"
+      pButton
+      (click)="validateForm()"
+      label="Enviar"
+    ></button>
+  </form>
+</form>

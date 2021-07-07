@@ -1,0 +1,21 @@
+<div>
+  <form [formGroup]="form" (ngSubmit)="form.valid && addTodo()">
+    <input
+      id="in_title"
+      placeholder="Title"
+      name="title"
+      type="text"
+      pInputText
+      formControlName="title"
+    />
+    <input
+      id="in_description"
+      placeholder="Description"
+      name="description"
+      type="text"
+      pInputText
+      formControlName="description"
+    />
+    <button type="submit" pButton label="Enviar">Enviar</button>
+  </form>
+</div>
