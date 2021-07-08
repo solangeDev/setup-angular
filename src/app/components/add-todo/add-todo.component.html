@@ -1,5 +1,6 @@
 <div>
-  <form class="form" [formGroup]="form" (ngSubmit)="form.valid && addTodo()">
+  <!-- (ngSubmit)="form.valid && addTodo()" -->
+  <form class="form" [formGroup]="form" (ngSubmit)="form.valid && addTodo()" >
     <input
       id="in_title"
       placeholder="Title"
@@ -7,7 +8,13 @@
       type="text"
       pInputText
       formControlName="title"
+      required
+      [(ngModel)]="todo.title" 
+      
     />
+    <span *ngIf="title?.errors && title?.touched">
+      Title is not valid
+    </span>
     <input
       id="in_description"
       placeholder="Description"
@@ -15,7 +22,11 @@
       type="text"
       pInputText
       formControlName="description"
+      [(ngModel)]="todo.description"
     />
-    <button type="submit" pButton label="Enviar">Enviar</button>
+    <span *ngIf="title?.errors && title?.touched">
+      Description is not valid
+    </span>
+    <button type="submit" pButton label="Enviar"></button>
   </form>
 </div>

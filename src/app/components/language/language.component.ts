@@ -1,11 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { CookieService } from 'ngx-cookie-service';
-
-interface Language {
-  name: string;
-  code: string;
-}
+import { Language } from '../../core/models/language.model';
 
 @Component({
   selector: 'app-language',
@@ -34,15 +30,11 @@ export class LanguageComponent implements OnInit {
   changeLenague() {
     this.cookieService.set('lang', JSON.stringify(this.selectedLenguage));
     this.translate.use(this.selectedLenguage.code.toLowerCase());
-    // localStorage.setItem('lang', JSON.stringify(this.selectedLenguage));
-    // console.log(this.cookieService)
-    // window.location.reload();
   }
 
   ngOnInit(): void {
     if (localStorage.getItem('lang') === null) {
       this.cookieService.set('lang', JSON.stringify(this.selectedLenguage));
-      // localStorage.setItem('lang', JSON.stringify(this.selectedLenguage));
     }
   }
 }

@@ -7,7 +7,6 @@ import { InputTextModule } from 'primeng/inputtext';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 // import { FormYupComponent } from './components/form-yup/form-yup.component';
 import { FormYupModule } from './components/form-yup/form-yup.module';
-// import { HomeComponent } from './components/home/home.component';
 import { AddTodoComponent } from './components/add-todo/add-todo.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { MainComponent } from './components/main/main.component';
@@ -18,6 +17,8 @@ import { LanguageComponent } from './components/language/language.component';
 import { ListboxModule } from 'primeng/listbox';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import {CheckboxModule} from 'primeng/checkbox';
+import { ItemComponent } from './components/item/item.component';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(httpClient: HttpClient) {
@@ -30,8 +31,10 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     AddTodoComponent,
     MainComponent,
     LanguageComponent,
+    ItemComponent,
   ],
   imports: [
+    CheckboxModule,
     ReactiveFormsModule,
     BrowserModule,
     AppRoutingModule,
@@ -49,6 +52,9 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
         deps: [HttpClient]
       }
     })
+  ],
+  exports:[
+    FormsModule,
   ],
   providers: [CookieService],
   bootstrap: [AppComponent],

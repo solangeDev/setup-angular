@@ -33,16 +33,26 @@ import { TodosState, TodoStore } from './store';
 
 @Injectable({ providedIn: 'root' })
 export class TodoQuery extends QueryEntity<TodosState> {
-  constructor(protected store: TodoStore, private todoStore: TodoStore) {
+  constructor(protected store: TodoStore) {
     super(store);
   }
 
   getTodos(): Observable<Todo[]> {
-    return  this.selectAll({sortBy: "title"});
+    // {sortBy: "title"}
+    return  this.selectAll();
   }
 
   add(title: string, description: string) {
     const todo = createTodo(title, description);
-    this.todoStore.add(todo);
+    this.store.add(todo);
   }
+
+  remove(id: any) {
+    this.store.remove(id);
+  }
+
+  update(id: any, todo: Partial<Todo>) {
+    this.store.update(id, todo);
+  }
+
 }

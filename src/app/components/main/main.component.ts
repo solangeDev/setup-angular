@@ -1,10 +1,11 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { TodoQuery } from 'src/app/state/query';
 import { TodoStore } from 'src/app/state/store';
 import { Todo } from 'src/app/core/models/todo.model';
 import { filter, switchMap, take } from 'rxjs/operators';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-main',
@@ -12,7 +13,7 @@ import { filter, switchMap, take } from 'rxjs/operators';
   styleUrls: ['./main.component.less'],
 })
 export class MainComponent implements OnInit {
-
+  
   constructor(
     private router: Router,
     protected todoQuery: TodoQuery,
@@ -22,7 +23,6 @@ export class MainComponent implements OnInit {
   public todos$ = this.todoQuery.selectAll({sortBy: "title"});
 
   ngOnInit(): void {
-    // this.todos$ = this.todoQuery.getTodos();
   }
 
 }

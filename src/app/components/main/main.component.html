@@ -4,9 +4,7 @@
 <div>
   <section class="">
     <div *ngFor="let todo of todos$ | async" class="todo">
-      <p>{{ todo.title }}</p>
-      <p>{{ todo.description }}</p>
-      <!-- <a [routerLink]="[ '/book', book.id ]">book details</a> -->
+      <app-item [todo]="todo"></app-item>
     </div>
   </section>
 </div>
