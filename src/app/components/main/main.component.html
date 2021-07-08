@@ -1,5 +1,12 @@
 <!-- <button type="button" (click)="addTodo()" pButton label="Add">Add</button> -->
 <app-add-todo></app-add-todo>
-<h3>Mi List</h3>
-<!-- [todos]="todos$ | async" -->
-<app-todo-list></app-todo-list>
+<h3>Mi {{ "list" | translate }}</h3>
+<div>
+  <section class="">
+    <div *ngFor="let todo of todos$ | async" class="todo">
+      <p>{{ todo.title }}</p>
+      <p>{{ todo.description }}</p>
+      <!-- <a [routerLink]="[ '/book', book.id ]">book details</a> -->
+    </div>
+  </section>
+</div>

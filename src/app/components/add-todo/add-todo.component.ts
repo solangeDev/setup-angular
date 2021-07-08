@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { ApiService } from 'src/app/api-service';
-// import { TodoQuery } from 'src/app/state/query';
+import { TodoQuery } from 'src/app/state/query';
 
 @Component({
   selector: 'app-add-todo',
@@ -12,8 +11,7 @@ export class AddTodoComponent implements OnInit {
   form!: FormGroup;
 
   constructor(
-    private apiService: ApiService,
-    // private todoQuery: TodoQuery
+    private todoQuery: TodoQuery
   ) { }
 
   ngOnInit(): void {
@@ -24,8 +22,7 @@ export class AddTodoComponent implements OnInit {
   }
 
   addTodo(){
-    this.apiService.add(this.form.value.title, this.form.value.description);
-    // console.log(this.form.value)
+    this.todoQuery.add(this.form.value.title, this.form.value.description);
   }
 
 }
